@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
+  <v-app>
+    <v-app-bar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Travel</span>
+        <span class="font-weight-light">Vuetify</span>
+      </v-toolbar-title>
+    </v-app-bar>
 
+    <v-content>
+      <SearchForm :submitAction="submitSearchForm" />
+    </v-content>
+  </v-app>
+</template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchForm from "./components/SearchForm";
 
 export default {
-  name: 'app',
+  name: "App",
   components: {
-    HelloWorld
+    SearchForm
+  },
+  data: () => ({}),
+  methods: {
+    submitSearchForm(form) {
+      alert(form.fromCity + " hello!!!! " + form.toCity);
+    }
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
