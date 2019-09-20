@@ -9,21 +9,27 @@
 
     <v-content>
       <SearchForm :submitAction="submitSearchForm" />
+      <FlightsTable :flightInfo="flightInfo"/>
     </v-content>
   </v-app>
 </template>
 <script>
 import SearchForm from "./components/SearchForm";
+import FlightsTable from "./components/FlightsTable";
+import {getFilteredFlights, getAllFlights} from "./service/flightService";
 
 export default {
   name: "App",
   components: {
-    SearchForm
+    SearchForm,
+    FlightsTable
   },
-  data: () => ({}),
+  data: () => ({
+      flightInfo:getAllFlights()
+  }),
   methods: {
     submitSearchForm(form) {
-      alert(form.fromCity + " hello!!!! " + form.toCity);
+      this.flightInfo = getFilteredFlights(form.fromCity, form.toCity);
     }
   }
 };

@@ -8,12 +8,14 @@
 </template>
 
 <script>
-import {getFlightInfo} from "../service/flightService";
 export default {
+
   data: () => {
     return {
-      flightInfo:getFlightInfo()
     };
+  },
+  props: {
+    flightInfo:Object
   }
 };
 </script>
