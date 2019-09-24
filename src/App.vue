@@ -1,36 +1,33 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
+    <v-app-bar app color="yellow">
+      <v-toolbar-title class="headline text-uppercase indigo--text">
         <span>Travel</span>
-        <span class="font-weight-light">Vuetify</span>
+        <span class="font-weight-light">ify</span>
       </v-toolbar-title>
+      <v-toolbar-items>
+        <v-btn text to="/">Home
+        </v-btn>
+        <v-btn text to="/search">Search Flights
+        </v-btn>
+      </v-toolbar-items>
     </v-app-bar>
-
     <v-content>
-      <SearchForm :submitAction="submitSearchForm" />
-      <FlightsTable :flightInfo="flightInfo"/>
+      <router-view />
     </v-content>
   </v-app>
 </template>
 <script>
-import SearchForm from "./components/SearchForm";
-import FlightsTable from "./components/FlightsTable";
-import {getFilteredFlights, getAllFlights} from "./service/flightService";
+import SearchPage from "./components/SearchPage";
 
 export default {
   name: "App",
   components: {
-    SearchForm,
-    FlightsTable
   },
   data: () => ({
-      flightInfo:getAllFlights()
+   
   }),
   methods: {
-    submitSearchForm(form) {
-      this.flightInfo = getFilteredFlights(form.fromCity, form.toCity);
-    }
   }
 };
 </script>

@@ -12,26 +12,22 @@
         </v-row>
         <v-row>
           <v-col :cols="numberOfCols" :lg="numberOfLg">
-            <Date dateLabel="Departure Date" />
+            Departure Date <input v-model="form.departureDate">
           </v-col>
           <v-col :cols="numberOfCols" :lg="numberOfLg">
-            <Date dateLabel="Arrival Date" />
+            Arrival Date <input v-model="form.returnDate">
           </v-col>
           <v-col :cols="numberOfCols" :lg="numberOfLg">
-            <v-btn @click="submitAction(form)"> Submit</v-btn>
+            <v-btn @click="submitAction(form)" color="yellow"> Submit</v-btn>
           </v-col>
         </v-row>
       </v-container>
 </template>
 
 <script>
-import Date from "./Date";
-
 export default {
-  name: "App",
-  components: {
-    Date
-  },
+  name: "SearchForm",
+  components: {},
   data: () => ({
     items: ["Singapore", "Jakarta", "Paris"],
     numberOfCols: 12,
@@ -39,14 +35,17 @@ export default {
     form: {
       fromCity: "",
       toCity: "",
-      departureDate: String,
-      arrivalDate: String
+      departureDate: "",
+      returnDate: ""
     }, 
   }),
   props: {
     submitAction: Function
   },
   methods: {
+    onSubmit() {
+      this.$emit("submit", this.form);
+    }
   }
 };
 </script>

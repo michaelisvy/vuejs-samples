@@ -5,7 +5,10 @@
         "jasmine": true,
         "jest": true
     },
-    "extends": "standard",
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/recommended"
+      ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -15,7 +18,9 @@
         "sourceType": "module"
     },
     "rules": {
+        "vue/max-attributes-per-line": "off",
         "prefer-const": "error",
+        "no-console": "warn",
         "indent": "off",
         "quotes": "off",
         "eol-last": "off",
