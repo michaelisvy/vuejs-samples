@@ -2,7 +2,7 @@
   <v-card class="mx-auto" max-width="800">
           <v-img class="white--text" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
             <SearchForm :submit-action="submitSearchForm" />
-            <FlightsTable :flight-info="flightInfo" />
+            <FlightsTable :flight-list="flightList" />
           </v-img>
         </v-card>
 </template>
@@ -18,11 +18,11 @@ export default {
     FlightsTable
   },
   data: () => ({
-    flightInfo: getAllFlights()
+    flightList: getAllFlights()
   }),
   methods: {
     submitSearchForm(form) {
-      this.flightInfo = getFilteredFlights(
+      this.flightList = getFilteredFlights(
         form.fromCity,
         form.toCity,
         form.departureDate,

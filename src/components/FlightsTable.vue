@@ -1,7 +1,7 @@
 <template>
   <v-data-table
-    :headers="flightInfo.headers"
-    :items="flightInfo.flights"
+    :headers="flightList.headers"
+    :items="flightList.flights"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
@@ -15,7 +15,7 @@ export default {
     };
   },
   props: {
-    flightInfo:Object
+    flightList:Object
   }
 };
 </script>
