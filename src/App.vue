@@ -8,7 +8,7 @@
       <v-toolbar-items>
         <v-btn text to="/">Home
         </v-btn>
-        <v-btn text to="/search">Search Flights
+        <v-btn text to="/flights">Search Flights
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>

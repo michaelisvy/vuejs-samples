@@ -43,9 +43,6 @@ export default {
     submitAction: Function
   },
   methods: {
-    onSubmit() {
-      this.$emit("submit", this.form);
-    }
-  }
+  },
 };
 </script>

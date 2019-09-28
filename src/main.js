@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: SplashScreen },
-  { path: '/search', component: SearchPage }
+  { path: '/flights/', component: SearchPage }
 ];
 
 const router = new VueRouter({

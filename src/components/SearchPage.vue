@@ -1,10 +1,10 @@
 <template>
   <v-card class="mx-auto" max-width="800">
-          <v-img class="white--text" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-            <SearchForm :submit-action="submitSearchForm" />
-            <FlightsTable :flight-list="flightList" />
-          </v-img>
-        </v-card>
+    <v-img class="white--text" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+      <SearchForm :submit-action="submitSearchForm" />
+      <FlightsTable :flight-list="flightList" />
+    </v-img>
+  </v-card>
 </template>
 <script>
 import SearchForm from "./SearchForm";
@@ -17,9 +17,12 @@ export default {
     SearchForm,
     FlightsTable
   },
-  data: () => ({
-    flightList: getAllFlights()
-  }),
+  data: function() {
+    return {
+      flightList: Object
+    };
+  },
+
   methods: {
     submitSearchForm(form) {
       this.flightList = getFilteredFlights(
@@ -29,6 +32,14 @@ export default {
         form.returnDate
       );
     }
+  },
+  created() {
+    this.flightList = getFilteredFlights(
+      this.$route.query.fromCity,
+      this.$route.query.toCity,
+      "",
+      ""
+    );
   }
 };
 </script>

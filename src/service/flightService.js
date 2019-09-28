@@ -8,23 +8,28 @@ export function getAllFlights() {
 export function getFilteredFlights(fromCity, toCity, departureDate, returnDate) {
   // as of now, startDate is just a String. To be improved later
   let filteredFlights = flights;
+  console.log("from city: " + fromCity + " to city: " + toCity);
   
-  if (fromCity !== "") {
+  if (fieldIsNotEmpty(fromCity)) {
     filteredFlights = filteredFlights.filter(flight => flight["from"] === fromCity);
   }
-  if (toCity !== "") {
+  if (fieldIsNotEmpty(toCity)) {
     filteredFlights = filteredFlights.filter(flight => flight.to === toCity);
   }
-  if (typeof departureDate !== "undefined" && departureDate !== "") {
+  if (fieldIsNotEmpty(departureDate)) {
     filteredFlights = filteredFlights.filter(flight => flight.departureDate === departureDate);
   }
-  if (typeof returnDate !== "undefined" && returnDate !== "") {
+  if (fieldIsNotEmpty(returnDate)) {
     filteredFlights = filteredFlights.filter(flight => flight.returnDate === returnDate);
   }
   return {
     headers: headers,
     flights: filteredFlights
   }
+}
+
+function fieldIsNotEmpty(field) {
+  return typeof field !== "undefined" && field !== "";
 }
 
 const headers = [
