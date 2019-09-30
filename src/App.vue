@@ -6,9 +6,11 @@
         <span class="font-weight-light">ify</span>
       </v-toolbar-title>
       <v-toolbar-items>
-        <v-btn text to="/">Home
+        <v-btn text to="/">
+          Home
         </v-btn>
-        <v-btn text to="/flights">Search Flights
+        <v-btn text to="/flights">
+          Search Flights
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
@@ -18,8 +20,6 @@
   </v-app>
 </template>
 <script>
-import SearchPage from "./components/SearchPage";
-
 export default {
   name: "App",
   components: {

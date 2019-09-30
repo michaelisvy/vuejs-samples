@@ -8,7 +8,6 @@ export function getAllFlights() {
 export function getFilteredFlights(fromCity, toCity, departureDate, returnDate) {
   // as of now, startDate is just a String. To be improved later
   let filteredFlights = flights;
-  console.log("from city: " + fromCity + " to city: " + toCity);
   
   if (fieldIsNotEmpty(fromCity)) {
     filteredFlights = filteredFlights.filter(flight => flight["from"] === fromCity);

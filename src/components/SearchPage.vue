@@ -9,7 +9,7 @@
 <script>
 import SearchForm from "./SearchForm";
 import FlightsTable from "./FlightsTable";
-import { getFilteredFlights, getAllFlights } from "../service/flightService";
+import { getFilteredFlights} from "@/service/flightService";
 
 export default {
   name: "SearchPage",
@@ -22,7 +22,14 @@ export default {
       flightList: Object
     };
   },
-
+  created() {
+    this.flightList = getFilteredFlights(
+      this.$route.query.fromCity,
+      this.$route.query.toCity,
+      "",
+      ""
+    );
+  },
   methods: {
     submitSearchForm(form) {
       this.flightList = getFilteredFlights(
@@ -32,14 +39,6 @@ export default {
         form.returnDate
       );
     }
-  },
-  created() {
-    this.flightList = getFilteredFlights(
-      this.$route.query.fromCity,
-      this.$route.query.toCity,
-      "",
-      ""
-    );
   }
 };
 </script>
