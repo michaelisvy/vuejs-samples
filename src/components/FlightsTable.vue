@@ -3,19 +3,21 @@
     :headers="flightList.headers"
     :items="flightList.flights"
     :items-per-page="5"
-    class="elevation-1"
-  ></v-data-table>
+    class="elevation-1" 
+  />
 </template>
 
 <script>
 export default {
-
+  props: {
+    flightList: {
+      required:true,
+      type:Object
+    }
+  },
   data: () => {
     return {
     };
-  },
-  props: {
-    flightList:Object
   }
 };
 </script>

@@ -1,20 +1,20 @@
 <template>
   <v-card class="mx-auto" max-width="800">
     <v-img class="white--text" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-      <SearchForm :submit-action="submitSearchForm" />
+      <FlightSearchForm :submit-action="submitSearchForm" />
       <FlightsTable :flight-list="flightList" />
     </v-img>
   </v-card>
 </template>
 <script>
-import SearchForm from "./SearchForm";
+import FlightSearchForm from "./FlightSearchForm";
 import FlightsTable from "./FlightsTable";
 import { getFilteredFlights} from "@/service/flightService";
 
 export default {
   name: "SearchPage",
   components: {
-    SearchForm,
+    FlightSearchForm,
     FlightsTable
   },
   data: function() {
