@@ -3,7 +3,10 @@
     :headers="flightList.headers"
     :items="flightList.flights"
     :items-per-page="5"
-    class="elevation-1" 
+    :item-selected="item"
+    :item-key="id"
+    class="elevation-1"
+    @click:row="submitForm()"
   />
 </template>
 
@@ -17,7 +20,13 @@ export default {
   },
   data: () => {
     return {
+      selected: Object
     };
+  },
+  methods: {
+    submitForm(item) {
+      alert("hello!!! ");
+    }
   }
 };
 </script>
