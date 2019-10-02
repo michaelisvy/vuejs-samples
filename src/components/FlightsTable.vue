@@ -3,10 +3,9 @@
     :headers="flightList.headers"
     :items="flightList.flights"
     :items-per-page="5"
-    :item-selected="item"
-    :item-key="id"
+    item-key="id"
     class="elevation-1"
-    @click:row="submitForm()"
+    @click:row="displayFlightDetails"
   />
 </template>
 
@@ -14,8 +13,8 @@
 export default {
   props: {
     flightList: {
-      required:true,
-      type:Object
+      required: true,
+      type: Object
     }
   },
   data: () => {
@@ -24,8 +23,10 @@ export default {
     };
   },
   methods: {
-    submitForm(item) {
-      alert("hello!!! ");
+    displayFlightDetails(item) {
+      this.$router.push({
+        path: `/flights/${item.id}`
+      });
     }
   }
 };
