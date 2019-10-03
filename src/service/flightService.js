@@ -52,20 +52,23 @@ const flights = [
     from: 'Singapore',
     to: 'Jakarta',
     departureDate: '17/09/19',
-    returnDate: '30/09/19'
+    returnDate: '30/09/19',
+    airline: "Garuda"
   },
   {
     id: "002",
     from: 'Singapore',
     to: 'Paris',
     departureDate: '18/09/19',
-    returnDate: '09/10/19'
+    returnDate: '09/10/19',
+    airline: "Air France"
   },
   {
     id: "003",
     from: 'Jakarta',
     to: 'Paris',
     departureDate: '18/10/19',
-    returnDate: '09/10/19'
+    returnDate: '09/10/19',
+    airline: "Singapore Airlines"
   }
 ]
