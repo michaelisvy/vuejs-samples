@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto" max-width="800">
     <v-img class="white--text" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
-      <FlightSearchForm :submit-action="submitSearchForm" />
+      <FlightSearchForm :submit-action="submitSearchForm" @submit="submitSearchForm"/>
       <FlightsTable :flight-list="flightList" />
     </v-img>
   </v-card>

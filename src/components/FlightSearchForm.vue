@@ -31,7 +31,10 @@
       </v-col>
       <v-col :cols="numberOfCols" :lg="numberOfLg">
         <v-btn color="yellow" @click="submitAction(form)">
-          Submit
+          Submit Prop
+        </v-btn>
+        <v-btn color="yellow" @click="onSubmit()">
+          Submit Emit
         </v-btn>
       </v-col>
     </v-row>
@@ -59,6 +62,10 @@ export default {
       returnDate: ""
     }
   }),
-  methods: {}
+  methods: {
+    onSubmit() {
+      this.$emit("submit", this.form);
+    },
+  }
 };
 </script>

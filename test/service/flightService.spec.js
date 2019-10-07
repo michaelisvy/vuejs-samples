@@ -9,7 +9,7 @@ describe('tests for FlightService', () => {
         });
     });
 
-    it('should get a flight by id refactoring', () => {
+    it('should get a flight by id', () => {
         let flight = getFlightById("001");
         expect(flight.departureDate).toBe("17/09/19");
     });
