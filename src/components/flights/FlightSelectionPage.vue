@@ -12,7 +12,6 @@ import FlightsTable from "./FlightsTable";
 import { getFilteredFlights} from "@/service/flightService";
 
 export default {
-  name: "SearchPage",
   components: {
     FlightSearchForm,
     FlightsTable
