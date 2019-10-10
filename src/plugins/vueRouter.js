@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import FlightSelectionPage from '@/components/FlightSelectionPage.vue';
-import FlightDetailsPage from '@/components/FlightDetailsPage.vue';
+import FlightSelectionPage from '@/components/flights/FlightSelectionPage.vue';
+import FlightDetailsPage from '@/components/flights/FlightDetailsPage.vue';
 import SplashScreen from '@/components/SplashScreen.vue';
 
 
