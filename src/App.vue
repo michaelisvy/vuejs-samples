@@ -12,8 +12,8 @@
         <v-btn text to="/flights">
           Search Flights
         </v-btn>
-        <v-btn text to="/personalInfo">
-          Personal Info
+        <v-btn text to="/customerInfo">
+          Customer Info
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>

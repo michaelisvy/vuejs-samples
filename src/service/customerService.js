@@ -1,7 +1,7 @@
-export function getPersonalInfo() {
+export function getCustomerList() {
   return {
     headers: headers,
-    personalInfo: personalInfo
+    data: data
   }
 }
 
@@ -12,7 +12,7 @@ const headers = [
   { text: 'email', value: 'email' }
 ];
 
-const personalInfo = [
+const data = [
   {
     id: "001",
     firstName: 'John',
