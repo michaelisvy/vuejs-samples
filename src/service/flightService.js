@@ -1,7 +1,7 @@
 export function getAllFlights() {
   return {
     headers: headers,
-    flights: flights
+    data: flights
   }
 }
 
@@ -23,7 +23,7 @@ export function getFilteredFlights(fromCity, toCity, departureDate, returnDate) 
   }
   return {
     headers: headers,
-    flights: filteredFlights
+    data: filteredFlights
   }
 }
 

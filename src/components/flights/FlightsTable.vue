@@ -1,7 +1,7 @@
 <template>
   <v-data-table
     :headers="flightList.headers"
-    :items="flightList.flights"
+    :items="flightList.data"
     :items-per-page="5"
     item-key="id"
     class="elevation-1"
