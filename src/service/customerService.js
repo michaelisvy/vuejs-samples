@@ -9,7 +9,8 @@ const headers = [
   { text: 'First Name', value: 'firstName' },
   { text: 'Last Name', value: 'lastName' },
   { text: 'Date of Birth', value: 'dateOfBirth' },
-  { text: 'email', value: 'email' }
+  { text: 'email', value: 'email' },
+  { text: "Actions", value: "action"}
 ];
 
 const data = [

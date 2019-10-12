@@ -15,6 +15,9 @@
         <v-btn text to="/customerInfo">
           Customer Info
         </v-btn>
+        <v-btn text to="/food">
+          Food
+        </v-btn>
       </v-toolbar-items>
     </v-app-bar>
     <v-content>
