@@ -24,12 +24,12 @@
         >
           delete
         </v-icon>
-    </template>
+      </template>
     </v-data-table>
   </v-card>
 </template>
 <script>
-import { deleteCustomer, getCustomerList } from "@/service/customerService";
+import * as customerService from "@/service/customerService";
 
 export default {
   data: function() {
@@ -38,14 +38,15 @@ export default {
     };
   },
   created() {
-    this.customerList = getCustomerList();
+    this.customerList = customerService.getCustomerList();
   },
   methods: {
     editItem(item) {
-      alert("hellooo");
+      alert("hellooo " + item.firstName);
     },
     deleteItem(item) {
-      confirm("are you sure you want to delete customer " + item.firstName + " " + item.lastName + "?") && deleteCustomer(item.id);
+      confirm("are you sure you want to delete customer " + item.firstName + " " + item.lastName + "?") && customerService.deleteById(item.id);
+      alert(this.customerList.data.length);
 
     },
     displayCustomerDetails(item) {

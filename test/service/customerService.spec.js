@@ -10,7 +10,7 @@ describe('tests for PersonalInfoService', () => {
     it('should delete one item', () => {
         let customerList = customerService.getCustomerList();
         expect(customerList.data.length).toBe(4);
-        customerService.deleteItem("001");
+        customerService.deleteById("001");
         expect(customerList.data.length).toBe(3);
     });
 });

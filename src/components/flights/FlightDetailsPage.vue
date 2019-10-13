@@ -1,10 +1,10 @@
 <template>
   <v-card class="mx-auto" max-width="800">
-    <div>Airlines: {{this.flight.airline}}</div>
-    <div>Departure: {{this.flight.departureDate}}</div>
-    <div>Return: {{this.flight.returnDate}}</div>
-    <div>From: {{this.flight.from}}</div>
-    <div>To: {{this.flight.to}}</div>
+    <div>Airlines: {{ flight.airline }}</div>
+    <div>Departure: {{ flight.departureDate }}</div>
+    <div>Return: {{ flight.returnDate }}</div>
+    <div>From: {{ flight.from }}</div>
+    <div>To: {{ flight.to }}</div>
   </v-card>
 </template>
 
@@ -12,9 +12,11 @@
 import { getFlightById } from "@/service/flightService";
 export default {
   props: {},
-  data: vm => ({
+  data: function() {
+    return {
     flight: Object
-  }),
+    };
+  },
   mounted() {
     this.flight = getFlightById(this.$route.params.flightId);
   },

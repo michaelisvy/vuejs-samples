@@ -1,34 +1,40 @@
 <template>
   <v-container>
-        <v-menu
-          ref="dateMenu"
-          v-model="dateMenu"
-          :close-on-content-click="false"
-          transition="scale-transition"
-          offset-y
-          full-width
-          max-width="290px"
-          min-width="290px"
-        >
-          <template v-slot:activator="{ on }">
-            <v-text-field
-              v-model="dateFormatted"
-              :label="dateLabel" 
-              persistent-hint
-              @blur="date = changeValueAction(date)"
-              v-on="on"
-            ></v-text-field>
-          </template>
-          <v-date-picker v-model="startDate" no-title @input="dateMenu = false"></v-date-picker>
-        </v-menu>
+    <v-menu
+      ref="dateMenu"
+      v-model="dateMenu"
+      :close-on-content-click="false"
+      transition="scale-transition"
+      offset-y
+      full-width
+      max-width="290px"
+      min-width="290px"
+    >
+      <template v-slot:activator="{ on }">
+        <v-text-field
+          v-model="dateFormatted"
+          :label="dateLabel" 
+          persistent-hint
+          @blur="date = changeValueAction(date)"
+          v-on="on"
+        />
+      </template>
+      <v-date-picker v-model="startDate" no-title @input="dateMenu = false" />
+    </v-menu>
   </v-container>
 </template>
 
 <script>
 export default {
   props: {
-    dateLabel:String,
-    changeValueAction: Function
+    dateLabel: {
+      type:String,
+      required: true
+    },
+    changeValueAction: {
+      type:Function,
+      required:true
+    }
   },
   data: vm => ({
     date: new Date().toISOString().substr(0, 10),

@@ -1,16 +1,22 @@
 <template>
   <v-container>      
-          <v-text-field
-            label="Regular"
-          ></v-text-field>
+    <v-text-field
+      label="Regular"
+    />
   </v-container>
 </template>
 
 <script>
 export default {
   props: {
-    dateLabel:String,
-    changeValueAction: Function
+    dateLabel: {
+      type:String,
+      required: true
+    },
+    changeValueAction: {
+      type:Function,
+      required:true
+    }
   },
   data: vm => ({
     date: new Date().toISOString().substr(0, 10),

@@ -5,7 +5,7 @@ export function getCustomerList() {
   }
 }
 
-export function deleteItem(id) {
+export function deleteById(id) {
   data.splice({"id": id}, 1);
 }
 
