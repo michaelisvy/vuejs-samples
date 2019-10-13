@@ -3,8 +3,8 @@ import {getFilteredFlights, getFlightById} from "../../src/service/flightService
 describe('tests for FlightService', () => {
     it('should get Singapore flights', () => {
         let filteredFlightList = getFilteredFlights("Singapore","","","");
-        expect(filteredFlightList.flights.length).toBe(2);
-        filteredFlightList.flights.forEach(flight => {
+        expect(filteredFlightList.data.length).toBe(2);
+        filteredFlightList.data.forEach(flight => {
             expect(flight.from).toBe("Singapore");
         });
     });

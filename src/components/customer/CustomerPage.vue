@@ -29,7 +29,7 @@
   </v-card>
 </template>
 <script>
-import { getCustomerList } from "@/service/customerService";
+import { deleteCustomer, getCustomerList } from "@/service/customerService";
 
 export default {
   data: function() {
@@ -45,7 +45,8 @@ export default {
       alert("hellooo");
     },
     deleteItem(item) {
-      alert("good bye!!!!");
+      confirm("are you sure you want to delete customer " + item.firstName + " " + item.lastName + "?") && deleteCustomer(item.id);
+
     },
     displayCustomerDetails(item) {
       alert(item.firstName + "  ");

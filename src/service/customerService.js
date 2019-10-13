@@ -5,6 +5,10 @@ export function getCustomerList() {
   }
 }
 
+export function deleteItem(id) {
+  data.splice({"id": id}, 1);
+}
+
 const headers = [
   { text: 'First Name', value: 'firstName' },
   { text: 'Last Name', value: 'lastName' },
