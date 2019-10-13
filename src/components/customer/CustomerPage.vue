@@ -34,7 +34,7 @@ import * as customerService from "@/service/customerService";
 export default {
   data: function() {
     return {
-      personalInfoList: Object
+      customerList: Object
     };
   },
   created() {
@@ -46,7 +46,6 @@ export default {
     },
     deleteItem(item) {
       confirm("are you sure you want to delete customer " + item.firstName + " " + item.lastName + "?") && customerService.deleteById(item.id);
-      alert(this.customerList.data.length);
 
     },
     displayCustomerDetails(item) {
