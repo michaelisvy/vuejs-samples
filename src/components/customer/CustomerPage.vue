@@ -45,7 +45,8 @@ export default {
       alert("hellooo " + item.firstName);
     },
     deleteItem(item) {
-      confirm("are you sure you want to delete customer " + item.firstName + " " + item.lastName + "?") && customerService.deleteById(item.id);
+      const message = "are you sure you want to delete customer " + item.firstName + " " + item.lastName + "?";
+      confirm(message) && customerService.deleteById(item.id);
 
     },
     displayCustomerDetails(item) {
