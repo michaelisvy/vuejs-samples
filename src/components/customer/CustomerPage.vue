@@ -5,35 +5,26 @@
       :items="customerList.data"
       @click:row="displayCustomerDetails"
     >
-      <template v-slot:top>
-        <v-toolbar flat color="white">
-          <v-toolbar-title>Detailed Passenger Information</v-toolbar-title>
-        </v-toolbar>
-      </template>
-      <template v-slot:item.action="{ item }">
-        <v-icon small class="mr-2" @click.stop="editItem(item)">edit</v-icon>
-        <v-icon small @click.stop="deleteItem(item)">delete</v-icon>
-        <v-dialog v-model="editDialog" max-width="290">
-          <v-card>
-            <v-card-title class="headline">Use Google's location service?</v-card-title>
-            <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="green darken-1" text @click="editDialog = false">Agree</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </template>
+      <v-toolbar flat color="white">
+        <v-toolbar-title>Detailed Passenger Information</v-toolbar-title>
+      </v-toolbar>
+      <EditCustomerDialog :customer="selectedCustomer" :submit-form-method="submitUpdateForm" />
+      <v-icon small @click.stop="deleteItem(item)">delete</v-icon>
     </v-data-table>
   </v-card>
 </template>
 <script>
 import * as customerService from "@/service/customerService";
+import EditCustomerDialog from "./EditCustomerDialog";
 
 export default {
+  components: {
+    EditCustomerDialog
+  },
   data: function() {
     return {
       customerList: Object,
+      selectedCustomer: {},
       editDialog: false
     };
   },
@@ -41,8 +32,12 @@ export default {
     this.customerList = customerService.getCustomerList();
   },
   methods: {
-    editItem() {
+    initUpdateForm(item) {
+      this.selectedCustomer = item;
       this.editDialog = true;
+    },
+    submitUpdateForm(item) {
+      alert(item.firstName + "  submitted");
     },
     deleteItem(item) {
       const message =
