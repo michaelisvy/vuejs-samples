@@ -9,7 +9,9 @@
         <v-toolbar-title>Detailed Passenger Information</v-toolbar-title>
       </v-toolbar>
       <EditCustomerDialog :customer="selectedCustomer" :submit-form-method="submitUpdateForm" />
-      <v-icon small @click.stop="deleteItem(item)">delete</v-icon>
+      <v-icon small @click.stop="deleteItem(item)">
+        delete
+      </v-icon>
     </v-data-table>
   </v-card>
 </template>

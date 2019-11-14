@@ -1,3 +1,6 @@
+import { formatFlight, formatFlightList} from './flightFormatter';
+
+
 export function getAllFlights() {
   return {
     headers: headers,
@@ -21,6 +24,10 @@ export function getFilteredFlights(fromCity, toCity, departureDate, returnDate) 
   if (fieldIsNotEmpty(returnDate)) {
     filteredFlights = filteredFlights.filter(flight => flight.returnDate === returnDate);
   }
+
+  formatFlightList(filteredFlights);
+
+  
   return {
     headers: headers,
     data: filteredFlights
@@ -30,7 +37,7 @@ export function getFilteredFlights(fromCity, toCity, departureDate, returnDate) 
 export function getFlightById(id) {
   for (var i = 0; i < flights.length; i++) {
     if (flights[i]['id'] == id) {
-      return flights[i];
+      return formatFlight(flights[i]);
     }
   }
 }
@@ -51,24 +58,24 @@ const flights = [
     id: "001",
     from: 'Singapore',
     to: 'Jakarta',
-    departureDate: '17/09/19',
-    returnDate: '30/09/19',
+    departureDate: '2019-09-17',
+    returnDate: '2019-09-30',
     airline: "Garuda"
   },
   {
     id: "002",
     from: 'Singapore',
     to: 'Paris',
-    departureDate: '18/09/19',
-    returnDate: '09/10/19',
+    departureDate: '2019-09-19',
+    returnDate: '2019-10-19',
     airline: "Air France"
   },
   {
     id: "003",
     from: 'Jakarta',
     to: 'Paris',
-    departureDate: '18/10/19',
-    returnDate: '09/10/19',
+    departureDate: '2019-10-18',
+    returnDate: '2019-10-19',
     airline: "Singapore Airlines"
   }
 ]
